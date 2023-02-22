@@ -1,7 +1,7 @@
 import styles from '@/styles/pages/ProtectedRoute.module.css'
 import { useRouter } from 'next/router'
 import { useAuthenticationStatus } from '@nhost/nextjs'
-import Spinner from '@/components/spinner'
+import { Spinner } from '@/components'
 
 export default function withAuth(Component: any) {
   return function AuthProtected(props: any) {

@@ -4,8 +4,7 @@ import { useRouter } from 'next/router'
 import { useSignInEmailPassword, useNhostClient } from '@nhost/nextjs'
 import Link from 'next/link'
 import Image from 'next/image'
-import Input from '@/components/input'
-import Spinner from '@/components/spinner'
+import { Input, Spinner } from '@/components'
 import logo from '@/assets/images/logo.svg'
 
 const SignIn = () => {

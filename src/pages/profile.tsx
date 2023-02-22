@@ -2,8 +2,7 @@ import styles from '../styles/pages/Profile.module.css'
 
 import { useState } from 'react'
 import Head from 'next/head'
-import Layout from '@/components/layout'
-import Input from '@/components/input'
+import { Layout, Input } from '@/components'
 import { useUserContext } from '@/providers/user-provider'
 import withAuth from '@/hooks/with-auth'
 

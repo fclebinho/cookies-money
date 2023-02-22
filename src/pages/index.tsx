@@ -2,7 +2,7 @@ import styles from '../styles/pages/Home.module.css'
 
 import { useUserContext } from '@/providers/user-provider'
 import Head from 'next/head'
-import Layout from '@/components/layout'
+import { Layout } from '@/components'
 import withAuth from '@/hooks/with-auth'
 
 const Home = () => {

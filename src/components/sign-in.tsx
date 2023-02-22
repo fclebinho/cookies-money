@@ -3,7 +3,7 @@ import styles from '@/styles/components/SignIn.module.css'
 import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Input } from '@/components/input'
+import { Input } from '@/components'
 import logo from '@/assets/images/logo.svg'
 
 export const SignIn = () => {
