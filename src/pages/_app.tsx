@@ -3,7 +3,7 @@ import type { AppProps } from 'next/app'
 import { Toaster } from 'react-hot-toast'
 import { NhostProvider, NhostClient } from '@nhost/nextjs'
 import { NhostApolloProvider } from '@nhost/react-apollo'
-import { UserProvider } from '@/providers/user-provider'
+import { EntriesProvider, UserProvider } from '@/providers'
 
 const nhost = new NhostClient({
   subdomain: process.env.NEXT_PUBLIC_NHOST_SUBDOMAIN || '',
@@ -15,8 +15,10 @@ export default function App({ Component, pageProps }: AppProps) {
     <NhostProvider nhost={nhost} initial={pageProps.nhostSession}>
       <NhostApolloProvider nhost={nhost}>
         <UserProvider>
-          <Component {...pageProps} />
-          <Toaster />
+          <EntriesProvider>
+            <Component {...pageProps} />
+            <Toaster />
+          </EntriesProvider>
         </UserProvider>
       </NhostApolloProvider>
     </NhostProvider>

@@ -12,6 +12,7 @@
     "@cookies-ui/react": "^0.0.13",
     "@headlessui/react": "^1.7.11",
     "@heroicons/react": "^2.0.16",
+    "@hookform/resolvers": "^2.9.11",
     "@next/font": "13.1.6",
     "@nhost/nextjs": "^1.13.5",
     "@nhost/react-apollo": "^4.13.5",
@@ -25,8 +26,10 @@
     "phosphor-react": "^1.4.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-hook-form": "^7.43.2",
     "react-hot-toast": "^2.4.0",
-    "typescript": "4.9.5"
+    "typescript": "4.9.5",
+    "zod": "^3.20.6"
   },
   "devDependencies": {
     "@rocketseat/eslint-config": "^1.2.0"

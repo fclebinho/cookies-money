@@ -2,7 +2,7 @@ import styles from '../styles/pages/Home.module.css'
 
 import { useUserContext } from '@/providers/user-provider'
 import Head from 'next/head'
-import { Layout } from '@/components'
+import { EntryForm, Layout, ListEntries } from '@/components'
 import withAuth from '@/hooks/with-auth'
 
 const Home = () => {
@@ -26,6 +26,8 @@ const Home = () => {
           Edit the <code>pages/index.js</code> file to populate this page.
         </p>
       </div>
+      <ListEntries />
+      <EntryForm />
     </Layout>
   )
 }
