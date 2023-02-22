@@ -1,24 +1,23 @@
-import styles from '@/styles/components/Layout.module.css';
+import styles from '@/styles/components/Layout.module.css'
 
 import { useSignOut } from '@nhost/nextjs'
-import React, { FC, Fragment } from 'react';
+import React, { FC, Fragment } from 'react'
 
-import Link from 'next/link';
-import Image from 'next/image';
-import { Menu, Transition } from '@headlessui/react';
-import { useUserContext } from '@/providers/user-provider';
+import Link from 'next/link'
+import Image from 'next/image'
+import { Menu, Transition } from '@headlessui/react'
+import { useUserContext } from '@/providers/user-provider'
 import logo from '@/assets/images/logo.svg'
-import { CaretDown, HouseSimple, SignOut, User } from 'phosphor-react';
-import { Avatar } from '@cookies-ui/react';
+import { CaretDown, HouseSimple, SignOut, User } from 'phosphor-react'
+import { Avatar } from '@cookies-ui/react'
 
-  export interface LayoutProps {
-    children?: React.ReactNode
-  }
+export interface LayoutProps {
+  children?: React.ReactNode
+}
 
-const Layout: FC<LayoutProps> = ({ children = null }) => {
-  const { user } = useUserContext();
+export const Layout: FC<LayoutProps> = ({ children = null }) => {
+  const { user } = useUserContext()
   const { signOut } = useSignOut()
-
 
   const menuItems = [
     {
@@ -34,9 +33,9 @@ const Layout: FC<LayoutProps> = ({ children = null }) => {
     {
       label: 'Logout',
       onClick: signOut,
-      icon: SignOut
+      icon: SignOut,
     },
-  ];
+  ]
 
   return (
     <div>
@@ -44,16 +43,18 @@ const Layout: FC<LayoutProps> = ({ children = null }) => {
         <div className={styles['header-container']}>
           <div className={styles['logo-wrapper']}>
             <Link href="/">
-              <Image
-                src={logo}
-                alt="logo"
-              />
+              <Image src={logo} alt="logo" />
             </Link>
           </div>
 
           <Menu as="div" className={styles.menu}>
             <Menu.Button className={styles['menu-button']}>
-              <Avatar src={user?.avatarUrl} size='small' referrerPolicy="no-referrer" alt={user?.displayName} />
+              <Avatar
+                src={user?.avatarUrl}
+                size="small"
+                referrerPolicy="no-referrer"
+                alt={user?.displayName}
+              />
               <CaretDown />
             </Menu.Button>
             <Transition
@@ -67,7 +68,11 @@ const Layout: FC<LayoutProps> = ({ children = null }) => {
             >
               <Menu.Items className={styles['menu-items-container']}>
                 <div className={styles['menu-header']}>
-                  <Avatar src={user?.avatarUrl} size='small' alt={user?.displayName} />
+                  <Avatar
+                    src={user?.avatarUrl}
+                    size="small"
+                    alt={user?.displayName}
+                  />
                   <div className={styles['user-details']}>
                     <span>{user?.displayName}</span>
                     <span className={styles['user-email']}>{user?.email}</span>
@@ -103,7 +108,5 @@ const Layout: FC<LayoutProps> = ({ children = null }) => {
         <div className={styles['main-container']}>{children}</div>
       </main>
     </div>
-  );
-};
-
-export default Layout;
+  )
+}

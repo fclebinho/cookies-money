@@ -1,18 +1,18 @@
-import styles from '@/styles/components/SignIn.module.css';
+import styles from '@/styles/components/SignIn.module.css'
 
-import { useState } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import Input from '@/components/input';
+import { useState } from 'react'
+import Link from 'next/link'
+import Image from 'next/image'
+import { Input } from '@/components/input'
 import logo from '@/assets/images/logo.svg'
 
-const SignIn = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+export const SignIn = () => {
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
 
   const handleOnSubmit = (e: any) => {
-    e.preventDefault();
-  };
+    e.preventDefault()
+  }
 
   return (
     <div className={styles.container}>
@@ -50,7 +50,5 @@ const SignIn = () => {
         </Link>
       </p>
     </div>
-  );
-};
-
-export default SignIn;
+  )
+}

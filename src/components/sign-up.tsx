@@ -1,20 +1,20 @@
-import styles from '@/styles/components/SignUp.module.css';
+import styles from '@/styles/components/SignUp.module.css'
 
-import { useState } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import Input from './input';
+import { useState } from 'react'
+import Link from 'next/link'
+import Image from 'next/image'
+import { Input } from './input'
 import logo from '@/assets/images/logo.svg'
 
-const SignUp = () => {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+export const SignUp = () => {
+  const [firstName, setFirstName] = useState('')
+  const [lastName, setLastName] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
 
   const handleOnSubmit = (e: any) => {
-    e.preventDefault();
-  };
+    e.preventDefault()
+  }
 
   return (
     <div className={styles.container}>
@@ -66,7 +66,5 @@ const SignUp = () => {
         </Link>
       </p>
     </div>
-  );
-};
-
-export default SignUp;
+  )
+}

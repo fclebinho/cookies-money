@@ -1,27 +1,25 @@
-import styles from '../styles/pages/Profile.module.css';
+import styles from '../styles/pages/Profile.module.css'
 
-
-import { useState } from 'react';
-import Head from 'next/head';
-import Layout from '@/components/layout';
-import Input from '@/components/input';
-import { useUserContext } from '@/providers/user-provider';
-import withAuth from '@/hooks/with-auth';
-
+import { useState } from 'react'
+import Head from 'next/head'
+import Layout from '@/components/layout'
+import Input from '@/components/input'
+import { useUserContext } from '@/providers/user-provider'
+import withAuth from '@/hooks/with-auth'
 
 const Profile = () => {
-  const { user } = useUserContext();
+  const { user } = useUserContext()
 
-  const [firstName, setFirstName] = useState(user?.metadata?.firstName ?? '');
-  const [lastName, setLastName] = useState(user?.metadata?.lastName ?? '');
+  const [firstName, setFirstName] = useState(user?.metadata?.firstName ?? '')
+  const [lastName, setLastName] = useState(user?.metadata?.lastName ?? '')
 
-  const isFirstNameDirty = firstName !== user?.metadata?.firstName;
-  const isLastNameDirty = lastName !== user?.metadata?.lastName;
-  const isProfileFormDirty = isFirstNameDirty || isLastNameDirty;
+  const isFirstNameDirty = firstName !== user?.metadata?.firstName
+  const isLastNameDirty = lastName !== user?.metadata?.lastName
+  const isProfileFormDirty = isFirstNameDirty || isLastNameDirty
 
   const updateUserProfile = async (e: any) => {
-    e.preventDefault();
-  };
+    e.preventDefault()
+  }
 
   return (
     <Layout>
@@ -77,7 +75,7 @@ const Profile = () => {
         </div>
       </div>
     </Layout>
-  );
-};
+  )
+}
 
-export default withAuth(Profile);
+export default withAuth(Profile)

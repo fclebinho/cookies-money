@@ -1,12 +1,12 @@
-import styles from '../styles/pages/Home.module.css';
+import styles from '../styles/pages/Home.module.css'
 
-import { useUserContext } from '@/providers/user-provider';
-import Head from 'next/head';
-import Layout from '@/components/layout';
+import { useUserContext } from '@/providers/user-provider'
+import Head from 'next/head'
+import Layout from '@/components/layout'
 import withAuth from '@/hooks/with-auth'
 
 const Home = () => {
-  const { user } = useUserContext();
+  const { user } = useUserContext()
 
   return (
     <Layout>
@@ -19,9 +19,7 @@ const Home = () => {
 
         <p className={styles['welcome-text']}>
           Welcome, {user?.metadata?.firstName || 'stranger'}{' '}
-          <span role="img" >
-            👋
-          </span>
+          <span role="img">👋</span>
         </p>
 
         <p className={styles['info-text']}>
@@ -29,7 +27,7 @@ const Home = () => {
         </p>
       </div>
     </Layout>
-  );
+  )
 }
 
-export default withAuth(Home);
+export default withAuth(Home)

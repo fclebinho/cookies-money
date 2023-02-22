@@ -16,8 +16,14 @@ const SignUp = () => {
 
   const router = useRouter()
 
-  const { signUpEmailPassword, isLoading, isSuccess, needsEmailVerification, isError, error } =
-    useSignUpEmailPassword()
+  const {
+    signUpEmailPassword,
+    isLoading,
+    isSuccess,
+    needsEmailVerification,
+    isError,
+    error,
+  } = useSignUpEmailPassword()
 
   const handleOnSubmit = async (e: any) => {
     e.preventDefault()
@@ -26,8 +32,8 @@ const SignUp = () => {
       displayName: `${firstName} ${lastName}`.trim(),
       metadata: {
         firstName,
-        lastName
-      }
+        lastName,
+      },
     })
   }
 
@@ -47,7 +53,8 @@ const SignUp = () => {
 
         {needsEmailVerification ? (
           <p className={styles['verification-text']}>
-            Please check your mailbox and follow the verification link to verify your email.
+            Please check your mailbox and follow the verification link to verify
+            your email.
           </p>
         ) : (
           <form onSubmit={handleOnSubmit} className={styles.form}>
@@ -84,11 +91,17 @@ const SignUp = () => {
               required
             />
 
-            <button type="submit" disabled={disableForm} className={styles.button}>
+            <button
+              type="submit"
+              disabled={disableForm}
+              className={styles.button}
+            >
               {isLoading ? <Spinner size="sm" /> : 'Create account'}
             </button>
 
-            {isError ? <p className={styles['error-text']}>{error?.message}</p> : null}
+            {isError ? (
+              <p className={styles['error-text']}>{error?.message}</p>
+            ) : null}
           </form>
         )}
       </div>

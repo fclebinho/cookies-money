@@ -15,8 +15,14 @@ const SignIn = () => {
   const router = useRouter()
   const { auth } = useNhostClient()
 
-  const { signInEmailPassword, isLoading, isSuccess, needsEmailVerification, isError, error } =
-    useSignInEmailPassword()
+  const {
+    signInEmailPassword,
+    isLoading,
+    isSuccess,
+    needsEmailVerification,
+    isError,
+    error,
+  } = useSignInEmailPassword()
 
   const handleOnSubmit = async (e: any) => {
     e.preventDefault()
@@ -41,7 +47,8 @@ const SignIn = () => {
 
         {needsEmailVerification ? (
           <p className={styles['verification-text']}>
-            Please check your mailbox and follow the verification link to verify your email.
+            Please check your mailbox and follow the verification link to verify
+            your email.
           </p>
         ) : (
           <>
@@ -63,11 +70,17 @@ const SignIn = () => {
                 required
               />
 
-              <button type="submit" disabled={disableForm} className={styles.button}>
+              <button
+                type="submit"
+                disabled={disableForm}
+                className={styles.button}
+              >
                 {isLoading ? <Spinner size="sm" /> : 'Sign in'}
               </button>
 
-              {isError ? <p className={styles['error-text']}>{error?.message}</p> : null}
+              {isError ? (
+                <p className={styles['error-text']}>{error?.message}</p>
+              ) : null}
             </form>
           </>
         )}
@@ -80,7 +93,9 @@ const SignIn = () => {
         </Link>
       </p>
 
-      <button type='button' onClick={handleGoogle}>Google</button>
+      <button type="button" onClick={handleGoogle}>
+        Google
+      </button>
     </div>
   )
 }
