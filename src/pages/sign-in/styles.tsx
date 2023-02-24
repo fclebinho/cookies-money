@@ -64,3 +64,5 @@ export const SignUpContainer = styled('div', {
     },
   },
 })
+
+export default Container
