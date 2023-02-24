@@ -4,6 +4,10 @@ import { Toaster } from 'react-hot-toast'
 import { NhostProvider, NhostClient } from '@nhost/nextjs'
 import { NhostApolloProvider } from '@nhost/react-apollo'
 import { EntriesProvider, UserProvider } from '@/providers'
+import { globalStyles } from '@/styles/global'
+import { theme } from '@/styles/theme'
+
+globalStyles()
 
 const nhost = new NhostClient({
   subdomain: process.env.NEXT_PUBLIC_NHOST_SUBDOMAIN || '',
@@ -16,7 +20,9 @@ export default function App({ Component, pageProps }: AppProps) {
       <NhostApolloProvider nhost={nhost}>
         <UserProvider>
           <EntriesProvider>
-            <Component {...pageProps} />
+            <div className={theme}>
+              <Component {...pageProps} />
+            </div>
             <Toaster />
           </EntriesProvider>
         </UserProvider>

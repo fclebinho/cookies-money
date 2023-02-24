@@ -5,6 +5,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Input } from '@/components'
 import logo from '@/assets/images/logo.svg'
+import { Button } from '@cookies-ui/react'
 
 export const SignIn = () => {
   const [email, setEmail] = useState('')
@@ -37,9 +38,9 @@ export const SignIn = () => {
             required
           />
 
-          <button type="submit" className={styles.button}>
+          <Button type="submit" size="large">
             Sign in
-          </button>
+          </Button>
         </form>
       </div>
 

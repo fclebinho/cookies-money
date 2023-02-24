@@ -1,4 +1,5 @@
 import { useEntriesContext } from '@/providers'
+import { Box, Button, Text, TextInput } from '@cookies-ui/react'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
@@ -20,6 +21,12 @@ export const EntryForm = () => {
     formState: { isSubmitting },
   } = useForm<FormData>({
     resolver: zodResolver(formSchema),
+    defaultValues: {
+      due_date: '2023-02-22T20:59:51.535Z',
+      amount: 123889,
+      description: 'Lançamento Manual',
+      kind: 1,
+    },
   })
 
   const handleAdd = async (data: FormData) => {
@@ -32,44 +39,38 @@ export const EntryForm = () => {
   }
 
   return (
-    <div>
+    <Box>
       <form onSubmit={handleSubmit(handleAdd)}>
         <label form="due_date">
-          <input
-            type="text"
-            value="2023-02-22T20:59:51.535Z"
-            {...register('due_date')}
-          />
+          <Text size="sm">Vencimento</Text>
+          <TextInput type="text" {...register('due_date')} />
         </label>
 
         <label form="amount">
-          <input
+          <Text size="sm">Valor R$</Text>
+          <TextInput
             type="number"
-            value="123889"
             {...register('amount', { valueAsNumber: true })}
           />
         </label>
 
         <label form="description">
-          <input
-            type="text"
-            value="Lançamento Manual"
-            {...register('description')}
-          />
+          <Text size="sm">Descrição</Text>
+          <TextInput type="text" {...register('description')} />
         </label>
 
         <label form="kind">
-          <input
+          <Text size="sm">Tipo</Text>
+          <TextInput
             type="number"
-            value="1"
             {...register('kind', { valueAsNumber: true })}
           />
         </label>
 
-        <button type="submit" disabled={isSubmitting}>
+        <Button type="submit" size="large" disabled={isSubmitting}>
           Adicionar
-        </button>
+        </Button>
       </form>
-    </div>
+    </Box>
   )
 }
