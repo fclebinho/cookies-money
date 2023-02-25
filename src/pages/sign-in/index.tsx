@@ -1,6 +1,8 @@
 import styles from '@/styles/components/SignIn.module.css'
 import { useState } from 'react'
 import { useRouter } from 'next/router'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { useTranslation } from 'next-i18next'
 import { useSignInEmailPassword, useNhostClient } from '@nhost/nextjs'
 import { Spinner } from '@/components'
 import { Button, Text, TextInput } from '@cookies-ui/react'
@@ -19,6 +21,7 @@ const SignIn = () => {
 
   const router = useRouter()
   const { auth } = useNhostClient()
+  const { t } = useTranslation('common')
 
   const {
     signInEmailPassword,
@@ -55,7 +58,7 @@ const SignIn = () => {
           <Content>
             <Form onSubmit={handleOnSubmit}>
               <FormField>
-                <Text size="sm">Email address</Text>
+                <Text size="sm">{t('email')}</Text>
                 <TextInput
                   type="email"
                   placeholder="Type your email"
@@ -67,7 +70,7 @@ const SignIn = () => {
               </FormField>
 
               <FormField>
-                <Text size="sm">Password</Text>
+                <Text size="sm">{t('password')}</Text>
                 <TextInput
                   type="password"
                   placeholder="Type your password"
@@ -78,8 +81,8 @@ const SignIn = () => {
                 />
               </FormField>
 
-              <Button type="submit" size="large" disabled={disableForm}>
-                {isLoading ? <Spinner size="sm" /> : 'Sign in'}
+              <Button type="submit" disabled={disableForm}>
+                {isLoading ? <Spinner size="sm" /> : t('sign_in')}
               </Button>
 
               {isError ? (
@@ -88,20 +91,15 @@ const SignIn = () => {
             </Form>
 
             <FormActions>
-              <Button
-                type="button"
-                size="large"
-                color="danger"
-                onClick={handleGoogle}
-              >
+              <Button type="button" color="danger" onClick={handleGoogle}>
                 Login with Google Account
               </Button>
 
               <SignUpContainer>
                 <Text size="sm">
-                  No account yet?
-                  <Button variant="text" as="a" size="medium" href="/sign-up">
-                    Sign up
+                  {t('no_account_yet')}
+                  <Button variant="text" as="a" href="/sign-up">
+                    {t('sign_up')}
                   </Button>
                 </Text>
               </SignUpContainer>
@@ -114,3 +112,12 @@ const SignIn = () => {
 }
 
 export default SignIn
+
+export async function getStaticProps({ locale }: any) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['common'])),
+      // Will be passed to the page component as props
+    },
+  }
+}

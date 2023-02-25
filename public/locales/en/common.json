@@ -1,5 +1,10 @@
 {
     "dashboard": "Dashboard",
     "profile": "Profile",
-    "logout": "Logout"
+    "logout": "Logout",
+    "email": "Email address",
+    "password": "Password",
+    "sign_in": "Sign In",
+    "no_account_yet": "No account yet",
+    "sign_up": "Sign up"
 }

@@ -6,6 +6,7 @@ import { NhostApolloProvider } from '@nhost/react-apollo'
 import { EntriesProvider, UserProvider } from '@/providers'
 import { globalStyles } from '@/styles/global'
 import { theme } from '@/styles/theme'
+import { appWithTranslation } from 'next-i18next'
 
 globalStyles()
 
@@ -14,7 +15,7 @@ const nhost = new NhostClient({
   region: process.env.NEXT_PUBLIC_NHOST_REGION || '',
 })
 
-export default function App({ Component, pageProps }: AppProps) {
+function App({ Component, pageProps }: AppProps) {
   return (
     <NhostProvider nhost={nhost} initial={pageProps.nhostSession}>
       <NhostApolloProvider nhost={nhost}>
@@ -30,3 +31,5 @@ export default function App({ Component, pageProps }: AppProps) {
     </NhostProvider>
   )
 }
+
+export default appWithTranslation(App)

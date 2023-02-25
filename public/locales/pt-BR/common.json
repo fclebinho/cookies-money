@@ -1,5 +1,10 @@
 {
     "dashboard": "Painel",
     "profile": "Perfil",
-    "logout": "Sair"
+    "logout": "Sair",
+    "email": "Email",
+    "password": "Senha",
+    "sign_in": "Acessar",
+    "no_account_yet": "Não possui conta ainda?",
+    "sign_up": "Crie agora"
 }
