@@ -6,5 +6,7 @@
     "password": "Senha",
     "sign_in": "Acessar",
     "no_account_yet": "Não possui conta ainda?",
-    "sign_up": "Crie agora"
+    "sign_up": "Crie agora",
+    "type_your_email": "Digite seu email",
+    "type_your_password": "Digite sua senha"
 }

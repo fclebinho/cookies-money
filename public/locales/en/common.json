@@ -6,5 +6,7 @@
     "password": "Password",
     "sign_in": "Sign In",
     "no_account_yet": "No account yet",
-    "sign_up": "Sign up"
+    "sign_up": "Sign up",
+    "type_your_email": "Type your email",
+    "type_your_password": "Type your password"
 }

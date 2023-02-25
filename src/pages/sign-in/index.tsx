@@ -61,7 +61,7 @@ const SignIn = () => {
                 <Text size="sm">{t('email')}</Text>
                 <TextInput
                   type="email"
-                  placeholder="Type your email"
+                  placeholder={t('type_your_email') ?? ''}
                   value={email}
                   onChange={(e: any) => setEmail(e.target.value)}
                   disabled={disableForm}
@@ -73,7 +73,7 @@ const SignIn = () => {
                 <Text size="sm">{t('password')}</Text>
                 <TextInput
                   type="password"
-                  placeholder="Type your password"
+                  placeholder={t('type_your_password') ?? ''}
                   value={password}
                   onChange={(e: any) => setPassword(e.target.value)}
                   disabled={disableForm}
