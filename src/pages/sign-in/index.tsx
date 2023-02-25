@@ -10,7 +10,6 @@ import {
   Form,
   FormActions,
   FormField,
-  Logo,
   SignUpContainer,
 } from './styles'
 
@@ -54,7 +53,6 @@ const SignIn = () => {
       ) : (
         <Container>
           <Content>
-            <Logo />
             <Form onSubmit={handleOnSubmit}>
               <FormField>
                 <Text size="sm">Email address</Text>

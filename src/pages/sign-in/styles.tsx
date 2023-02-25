@@ -15,10 +15,6 @@ export const Content = styled(Box, {
   padding: '$8',
 })
 
-export const Logo = styled('div', {
-  margin: '$12',
-})
-
 export const Form = styled('form', {
   display: 'flex',
   flexDirection: 'column',
@@ -56,11 +52,6 @@ export const SignUpContainer = styled('div', {
     '> a': {
       padding: 0,
       margin: '0 $1',
-      color: '$gray200',
-
-      '&:not(:disabled):hover': {
-        color: '$gray400',
-      },
     },
   },
 })
